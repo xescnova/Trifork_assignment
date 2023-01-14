@@ -32,10 +32,10 @@ function App() {
   //In a real word application you would hide this token in a .dev file
   //I left this here so the person who uses the code it will be easier for him
   const octokit = new Octokit({
-    auth: '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'
+    auth: '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'
   });
 
-  //personal token: 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
+  //personal token: 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
   //Calcules the number of repositories of the organization sent by the front end.
   //Makes as many API calls as there is data left to fetch(dataFetched) and stores in totalData
   async function calculateRepositories() {
