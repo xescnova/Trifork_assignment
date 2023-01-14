@@ -3,11 +3,13 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from 'react';
 import { Octokit } from "octokit";
+
 function App() {
+  
   //Constants
   //Max page size we can get from the API: https://docs.github.com/en/rest?apiVersion=2022-11-28
   const MAX_PAGE_SIZE = 100;
-
+ 
   //Exercise 1
   const [orgRepositories, setOrgRepositories] = useState("");
   const [orgName, setOrgName] = useState("");
@@ -28,14 +30,18 @@ function App() {
     setOrgName2(e.target.value);
   }
 
+  
+  
   //Github API token
-  //In a real word application you would hide this token in a .dev file
-  //I left this here so the person who uses the code it will be easier for him
+  //personal token: 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
+  //Personal token you need to put it in auth so it can work. I left this here so the person who tests the code it will
+  //be easier for him to test. In a real world app you will not left this token here you will put it in a .env variable
   const octokit = new Octokit({
-    auth: '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'
+    auth: process.env.REACT_APP_GITHUB_TOKEN
   });
 
-  //personal token: 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
+
+  
   //Calcules the number of repositories of the organization sent by the front end.
   //Makes as many API calls as there is data left to fetch(dataFetched) and stores in totalData
   async function calculateRepositories() {
