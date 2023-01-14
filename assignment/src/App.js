@@ -33,9 +33,6 @@ function App() {
   
   
   //Github API token
-  //personal token: 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
-  //Personal token you need to put it in auth so it can work. I left this here so the person who tests the code it will
-  //be easier for him to test. In a real world app you will not left this token here you will put it in a .env variable
   const octokit = new Octokit({
     auth: process.env.REACT_APP_GITHUB_TOKEN
   });
